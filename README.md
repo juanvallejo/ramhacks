@@ -17,3 +17,10 @@ http://www.google.com/trends/hottrends/atom/hourly
 ```
 https://developers.facebook.com/docs/trends/v2.2
 ```
+
+###Facebook Dev Info
+
+```
+App ID: 1500003746927559
+App Secret: 6c48cb5eef7b3f8908c54810bbcf695f
+```
