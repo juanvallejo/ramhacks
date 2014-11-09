@@ -12,8 +12,8 @@ API.GoogleTrends.getTrendingWord(function(word) {
 
 	// call johnny's api
 	API.MovieList.getProductList(word, function(products) {
-		console.log(products);
-		addProductToCategory('listview-moviesView', products, ['title', 'synopsis','year', 'links.alternate']);
+		//console.log(products);
+		addProductToCategory('listview-moviesView', products, ['Title', 'Plot','Year']);
 	});
     
 });

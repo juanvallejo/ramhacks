@@ -31,3 +31,6 @@ npm install aws-lib
 
 ###Rotten API Key
 csu7tr3mhfw52dge9tqw5cwf
+
+###MovieDB API Key
+3e8fb6e169842e130ebb14b19941fb76
