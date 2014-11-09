@@ -7,6 +7,9 @@
 		<!-- Styles -->
 		<link rel="stylesheet" href="kendo/styles/kendo.mobile.all.min.css" />
         
+		<!-- include globals -->
+		<script type="application/javascript" src="scripts/App.globals.js"></script>
+
         <!-- App Kendo Scripts -->
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -20,6 +23,7 @@
 		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.0.25.min.js"></script>
 
 		<!-- include utils -->
+		<script type="application/javascript" src="scripts/Util.clickActions.js"></script>
 		<script type="text/javascript" src="scripts/Util.addProduct.js"></script>
 		<script type="text/javascript" src="scripts/Util.httpRequest.js"></script>
 		<script type="text/javascript" src="scripts/Util.XMLToJSON.js"></script>
@@ -78,11 +82,16 @@
 
 		<script>
 			API.GoogleTrends.getTrendingWord(function(word) {
-				var wordWrap = document.getElementById('word').innerHTML = word;
+				// assign word to global var
+				App.wordOfTheDay = word;
+
+				// assign word of the day as title of app
+				var wordWrap = document.getElementById('word');
+				wordWrap.innerHTML = word;
 
 				//call jake's api
 				word = word.replace(' ', '+');
-				httpRequest('http://172.23.24.58:8080/getProductList/' + word, function(products) {
+				httpRequest('http://192.168.43.76:8080/getProductList/' + word, function(products) {
 					addProductToCategory('listview-productsView', JSON.parse(products), ['title', 'group','link'])
 				});
 

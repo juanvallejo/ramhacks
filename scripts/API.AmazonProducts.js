@@ -48,19 +48,21 @@ API.AmazonProducts.getProductList = function(PWord, callback) {
 
 	var options = {SearchIndex: "All", Keywords: PWord};
 	prodAdv.call("ItemSearch", options, function(err, result) {
-		JasonListItems = result.Items;
+		if(result) {
+			JasonListItems = result.Items;
 
-		if(JasonListItems.Item) {
-			for (var i = 0; i < JasonListItems.Item.length; i++){
-				ManufactorList[i] =  JasonListItems.Item[i].ItemAttributes.Manufacturer
-				ProductGroupList[i] = JasonListItems.Item[i].ItemAttributes.ProductGroup
-				TitleList[i] = JasonListItems.Item[i].ItemAttributes.Title
-				products.push({
-					link: JasonListItems.Item[i].DetailPageURL,
-					manufactor: ManufactorList[i],
-					title: TitleList[i],
-					group: ProductGroupList[i]
-				});
+			if(JasonListItems.Item) {
+				for (var i = 0; i < JasonListItems.Item.length; i++){
+					ManufactorList[i] =  JasonListItems.Item[i].ItemAttributes.Manufacturer
+					ProductGroupList[i] = JasonListItems.Item[i].ItemAttributes.ProductGroup
+					TitleList[i] = JasonListItems.Item[i].ItemAttributes.Title
+					products.push({
+						link: JasonListItems.Item[i].DetailPageURL,
+						manufactor: ManufactorList[i],
+						title: TitleList[i],
+						group: ProductGroupList[i]
+					});
+				}
 			}
 		}
 

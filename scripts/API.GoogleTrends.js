@@ -53,4 +53,23 @@ API.GoogleTrends.getTrendingWord = function(callback) {
     });
 };
 
+API.GoogleTrends.changeTrendingWord = function(callback) {
+    // make sure callback is of type Function
+    callback = callback || function() {};
+
+    httpRequest('http://navigator-fixed.rhcloud.com/apis/http://www.google.com/trends/hottrends/atom/hourly', function(response) {
+        var parser = new DOMParser();
+        var XMLDoc = parser.parseFromString(response, "text/html");
+
+        // output formatted xml document .. list of <li> items. User .innerText to retrieve content
+        var outputResults = XMLDoc.getElementsByTagName('content')[0].getElementsByTagName('li');
+
+        // change global word
+        console.log(Math.round((Math.random()) * 5));
+        // App.wordOfTheDay = outputResults[Math.round((Math.random()))].innerText
+
+        callback.call(this, App.wordOfTheDay);        
+    });
+};
+
 })();
