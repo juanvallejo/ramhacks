@@ -1,3 +1,16 @@
+/**
+* Provided under the MIT License (c) 2014
+* See LICENSE @file for details.
+*
+* @file API.GoogleNews.js
+*
+* @author jlpeyton
+* @date 10/15/14
+*
+* GoogleNews product API.
+* 
+*/
+
 (function() {
 
 /**

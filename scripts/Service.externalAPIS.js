@@ -24,12 +24,11 @@ var aws 	= require("aws-lib");							// load amazon products api
 
 
 // create server to broadcast all external api libraries where needed
-var server = http.createServer(function(req, res) {
-	var test = JSON.stringify(aws);
-	console.log(test);
+// var server = http.createServer(function(req, res) {
+// 	var test = JSON.stringify(aws);
 
-	res.end('test');
-});
+// 	res.end('test');
+// });
 
 // have server listen on port PORT
-server.listen(PORT);
+// server.listen(PORT);
