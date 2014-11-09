@@ -29,13 +29,18 @@ function addProductToCategory(categoryId, productArray, properties, imagePath) {
 
 			} else {
 				var singleLink = productArray[i][properties[s]];
-				if(singleLink.match(/^(http|https)/gi)){
 
-					singleLink = '<a href="'+singleLink + '">Click For More Info</a>';
-					spans[spans.length-1].innerHTML = singleLink;
-				}
-				else{
-					spans[spans.length-1].innerHTML=productArray[i][properties[s]];
+				if(singleLink) {
+					if(singleLink.match(/^(http|https)/gi)){
+
+						singleLink = '<a href="'+singleLink + '">Click For More Info</a>';
+						spans[spans.length-1].innerHTML = singleLink;
+					}
+					else{
+						spans[spans.length-1].innerHTML=productArray[i][properties[s]];
+					}
+				} else {
+					spans[spans.length-1].innerHTML="No Results Found.";
 				}
 				
 			}

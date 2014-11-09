@@ -8,7 +8,7 @@
 
 /* ios7 specific styles */
 .km-ios7 .km-view .km-content {
-    background-color: #6095b7;
+    background-color: #6095b7; /*changed bg color*/
 }
 .km-ios7 .k-list,
 .km-ios7 .k-slider,
@@ -36,7 +36,7 @@
     background-color: #422e17;
 }
 .km-ios .km-view .km-navbar {
-    background-color: #b2e4e3;
+    background-color: #604118;
 }
 .km-ios .km-view .km-tabstrip .km-button {
     background-color: #604118;
@@ -70,10 +70,10 @@
 }
 
 .km-android .km-view .km-content {
-    background-color: #422e17;
+    background-color: #b2e4e3;
 }
 .km-android .km-view .km-navbar {
-    background-color: #b2e4e3;
+    background-color: #604118;
 }
 .km-android .km-view .km-tabstrip .km-button.km-state-active {
     background-color: #133403;
@@ -84,10 +84,10 @@
 }
 .km-android .km-view .km-navbar .km-buttongroup .km-button {
     background-color: transparent;
-    border: 1px solid red;
+    border: 1px solid #133403;
 }
 .km-android .km-view .km-navbar .km-button.km-state-active {
-	background-color: #b2e4e3;
+	background-color: #133403;
 }
 .km-android .km-view .km-navbar .km-button.km-state-active:after {
     display: none;
@@ -99,7 +99,7 @@
 /* windows phone specific styles */
 .km-wp .km-view .km-content,
 .km-wp .km-view .km-navbar {
-    background-color: #6095b7/*#af9577*/;
+    background-color: #af9577;
 }
 .km-wp .km-actionsheet li a {
     text-transform: lowercase;
@@ -287,10 +287,4 @@
         background: url("../images/cofeeCup-sprite@x2.png") no-repeat 0 0;
         background-size: 100%;
 	}
-}
-
-
-/* custom css rules */
-.km-list li.custom-listview {
-border:1px solid red;
 }

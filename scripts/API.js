@@ -19,3 +19,24 @@ if(typeof require != 'undefined') {
 } else {
 	window.API = {};
 }
+
+API.events = {};
+
+API.on = function(eventName, callback) {
+	// make sure event key has been initialized
+	API.events[eventName] = API.events[eventName] || [];
+
+	// push callback to array of functions for eventName key
+	API.events[eventName].push(callback);
+};
+
+API.emit = function(eventName, arguments) {
+	console.log('emitting '+ eventName);
+	// make sure event key has been initialized
+	API.events[eventName] = API.events[eventName] || [];
+
+	// call each of the eventname's callback functions
+	API.events[eventName].forEach(function(action) {
+		action.apply(this, arguments);
+	});
+};

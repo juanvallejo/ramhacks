@@ -7,10 +7,16 @@
     </ul>
 </div>
 <script>
-API.GoogleTrends.getTrendingWord(function(word) {
+setTimeout(function() {
+    var ww = document.getElementById('word');
+    if(ww) {
+        ww.innerHTML = App.wordOfTheDay;
+    }
+// API.GoogleTrends.getTrendingWord(function(word) {
 	// call joey's api
-	API.GoogleNews.getProductList(word, function(products) {
+	API.GoogleNews.getProductList(App.wordOfTheDay, function(products) {
 		addProductToCategory('listview-newsView', products, ['link.innerText', 'description', 'link.href']);
 	});
-});
+}, 500);
+// });
 </script>

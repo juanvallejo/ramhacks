@@ -48,7 +48,7 @@
 			</header>
 			<div data-role="footer">
 				<div data-role="tabstrip" data-id="jitterz-tabstrip">
-					<a href="#home" data-icon="home">Products</a>
+					<a href="#home" style="background:url(images/products.png) no-repeat center 5px; background-size:20% 60%">Products</a>
 					<a href="views/moviesView.html" style="background:url(images/movies.png) no-repeat center 5px; background-size:20% 60%">Movies</a>
 					<a href="views/musicView.html" style="background:url(images/music.png) no-repeat center 5px; background-size:20% 60%">Music</a>
 					<a href="views/newsView.html" style="background:url(images/news.png) no-repeat center 5px; background-size:20% 60%">News</a>
@@ -81,21 +81,30 @@
 		</script>
 
 		<script>
-			API.GoogleTrends.getTrendingWord(function(word) {
-				// assign word to global var
-				App.wordOfTheDay = word;
+			if(!App.wordOfTheDay) {
+				console.log('loading word of the day for the first time');
 
-				// assign word of the day as title of app
-				var wordWrap = document.getElementById('word');
-				wordWrap.innerHTML = word;
+				API.GoogleTrends.getTrendingWord(function(word) {
+					// assign word to global var
+					App.wordOfTheDay = word;
 
-				//call jake's api
-				word = word.replace(' ', '+');
-				httpRequest('http://192.168.43.76:8080/getProductList/' + word, function(products) {
-					addProductToCategory('listview-productsView', JSON.parse(products), ['title', 'group','link'])
+					// assign word of the day as title of app
+					var wordWrap = document.getElementById('word');
+					if(wordWrap) {
+						wordWrap.innerHTML = word;
+					}
+
+					//call jake's api
+					word = word.replace(' ', '+');
+
+					var getTrendingWord = getTrendingWord || null;
+
+					httpRequest('http://172.23.18.29:8080/getProductList/' + word, function(products) {
+						addProductToCategory('listview-productsView', JSON.parse(products), ['title', 'group','link'])
+					});
+
 				});
-
-			});
+			}
 		</script>
 	</body>
 </html>
