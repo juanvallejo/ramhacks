@@ -18,7 +18,15 @@ function addProductToCategory(categoryId, productArray, properties) {
 			spans.push(document.createElement('span'));
 			
 			if(category.length > 1) {
-				spans[spans.length-1].innerHTML = '<a href="' + productArray[i][category[0]][category[1]] + '">' + productArray[i][category[0]][category[1]] + '</a>';
+				var link = productArray[i][category[0]][category[1]];
+				if (link.match(/^(http|https)/gi)){
+					link = '<a href="'+link + '">' + productArray[i][category[0]][category[1]] + '</a>';
+					spans[spans.length-1].innerHTML = link;
+				}
+				else{
+					spans[spans.length-1].innerHTML = productArray[i][category[0]][category[1]];
+				}
+
 			} else {
 				spans[spans.length-1].innerHTML=productArray[i][properties[s]];
 			}
