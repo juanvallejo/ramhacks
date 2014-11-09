@@ -1,8 +1,6 @@
 
 (function(){
-
 //Starts the needed variables and the required information
-var aws = require("aws-lib");
 var prodAdv = aws.createProdAdvClient("AKIAJM2KCIYE5XGZNRCQ", "iYBr7zSbypzWMmGPHuck2MgKUHlQ2xxAzsxIWIgS", "lorflupanhom-20");
 //	Ends the required information 
 
