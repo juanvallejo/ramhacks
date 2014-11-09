@@ -1,15 +1,28 @@
+(function() {
 
-	var queryName = 'apple';
-	
-	var movieQuery = queryName.trim();				//Movie Title & Actor Name Search String
-	movieQuery = movieQuery.replace(' ', '%20');		//convert spaces to plus signs
-	
-	var i=0;
-	
-	getFromURL('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=csu7tr3mhfw52dge9tqw5cwf&q=' + movieQuery + '&page_limit=5', function(MovieContent2) {
+	// main function
+	(function main() {
+		window.API.MovieList = {};
+	})();
 		
+
+		// @param queryName {String} gets the query from the trending words
+		//Returns the following (in this order): 
+		//links.alternate
+		//ratings.critics_score     ** -1 when none **
+		//synopsis
+		//title
+		//year
+		API.MovieList.getProductList = function(queryName, callback) {
+		callback = callback || function() {};
 		
-		MovieContent2 = JSON.parse(MovieContent2);
+		var movieQuery = queryName.trim();				//Movie Title & Actor Name Search String
+		movieQuery = movieQuery.replace(' ', '%20');	//convert spaces to %20
+		var i=0;
+		
+		httpRequest('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=csu7tr3mhfw52dge9tqw5cwf&q=' + movieQuery + '&page_limit=5', function(MovieContent) {
+		
+			MovieContent = JSON.parse(MovieContent);
 		
 		delete MovieContent2.link_template;
 		delete MovieContent2.links;
@@ -35,17 +48,14 @@
 			i++;
 		}
 		
-		//links.alternate
-		//ratings.critics_score     ** -1 when none **
-		//synopsis
-		//title
-		//year
-		
-		
-		
-			
-			console.log(MovieContent2);
-		
-		
 
-	});
+			
+			}
+
+			// return products
+			callback.call(this, [products]);
+		});
+
+	}
+	
+})();
