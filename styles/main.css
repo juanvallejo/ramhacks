@@ -279,7 +279,7 @@
     padding-left: 0;
 }
 .j-listview-item.rewards > .j-listview-item-content > span {
-	    
+
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
@@ -291,12 +291,25 @@
 
 
 /* custom css rules */
-.km-list li.custom-listview {
-border:1px solid black;
+
+.j-listview-item {
+    background-color: #fff;
+    border-radius: 5px;
+    border-bottom: 4px solid gray;
+
 }
 .km-view-title,
 .km-widget .km-tabstrip{
     /* border-radius: 25px; */
     background-color: #b2e4e3;
+}
+
+#listview-musicView > li{
+    padding-bottom:0;
+    border:0;
+}
+
+#musicView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div {
+    padding-bottom: 0px;
 }
 
