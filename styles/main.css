@@ -179,7 +179,7 @@
 .card-line > span {
     font-size: 23px;
     opacity: 0.7;
-    text-shadow: -0px -1px 3px black;
+    text-shadow: -0px -1px 3px red;
     color: white;
     font-weight: normal;
     font-family: monospace;
@@ -211,7 +211,7 @@
 }
 .card-bonus > span {
     margin-left: 16px;
-    text-shadow: 0px -1px 3px black;
+    text-shadow: 0px -1px 3px red;
     color: #fff;
     font-size: 24px;
 }
@@ -292,5 +292,11 @@
 
 /* custom css rules */
 .km-list li.custom-listview {
-border:1px solid red;
+border:1px solid black;
 }
+.km-view-title,
+.km-widget .km-tabstrip{
+    /* border-radius: 25px; */
+    background-color: #b2e4e3;
+}
+
