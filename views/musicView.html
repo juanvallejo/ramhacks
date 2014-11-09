@@ -6,3 +6,30 @@
         data-role="listview">
     </ul>
 </div>
+<script>
+API.GoogleTrends.getTrendingWord(function(word) {
+	console.log(word);
+	// call joey's api
+	// API.GoogleNews.getProductList(word, function(products) {
+	// 	console.log(products);
+	// 	addProductToCategory('listview-newsView', products);
+	// });
+
+	// call jake's api
+	// API.AmazonProducts.getProductList(word, function(products) {
+	// 	console.log(products);
+	// });
+
+	// call johnny's api
+	// API.MovieList.getProductList(word, function(products) {
+	// 	console.log(products);
+	// 	addProductToCategory('listview-moviesView', products, ['title', 'synopsis','year', 'links.alternate']);
+	// });
+
+	//call johnny's music api
+	API.MusicList.getProductList(word, function(products) {
+		console.log(products);
+		addProductToCategory('listview-musicView', products, ['artistName','collectionName', 'trackName', 'trackViewUrl']);
+	});
+});
+</script>
