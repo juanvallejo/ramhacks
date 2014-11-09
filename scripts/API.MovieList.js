@@ -62,10 +62,9 @@
 			
 			}
 
+			// return MovieContent
+			callback.call(this, [MovieContent]);
 		});
-		
-		// return MovieContent
-		callback.call(this, [MovieContent]);
 
 	}
 	

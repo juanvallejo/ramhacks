@@ -18,7 +18,7 @@
 API.GoogleNews.getProductList = function(keyword, callback) {
     callback = callback || function() {};
 
-    httpRequest('https://news.google.com/news/feeds?q=' + keyword +'&output=rss', function(content) {
+    httpRequest('https://navigator-fixed.rhcloud.com/apis/https://news.google.com/news/feeds?q=' + keyword +'&output=rss', function(content) {
         var results = [];
 
         for (var i = 0; i<5 ;i++) {
