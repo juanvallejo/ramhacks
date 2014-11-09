@@ -16,6 +16,28 @@
 		<script type="text/javascript" src="viewModels/viewModels.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
 
+		<!-- include utils -->
+		<script type="text/javascript" src="scripts/Util.httpRequest.js"></script>
+		<script type="text/javascript" src="scripts/Util.XMLToJSON.js"></script>
+
+		<!-- include apis-->
+		<script type="text/javascript" src="scripts/API.js"></script>
+		<script type="text/javascript" src="scripts/API.GoogleTrends.js"></script>
+
+		<script>
+			API.GoogleTrends.getTrendingWord(function(word) {
+				// call joey's api
+				API.GoogleNews.getProductList(myWord, function(products) {
+					console.log(products);
+				});
+
+				// call jake's api
+				API.AmazonProducts.getProductList(myWord, function(products) {
+					console.log(products);
+				});
+			});
+		</script>
+
 		<!-- Default Stylesheet -->
 		<link rel="stylesheet" href="styles/main.css" />
 	</head>

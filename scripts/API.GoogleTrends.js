@@ -7,7 +7,7 @@
 * @author juanvallejo
 * @date 10/15/14
 *
-* API file that outputs the top trending search term from Google Trends to local product APIS.
+* Main API file. Outputs the top trending search term from Google Trends to local product APIS.
 * Used to feed returned term.
 * 
 * API Server response can be accessed @ http://localhost:8000/
@@ -22,34 +22,11 @@
 var appName = 'MainServerAPI';
 
 /**
- * define basic app function utils
- */
-
-/**
- * makes http requests to specified url. Returns response as callback param
- * 
- * @param url       {String}    url of server to get response from
- * @param callback  {Function}  function to call after response is received from server
- */
-function httpRequest(url, callback) {
-    // create new HttpRequest object
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.send(null);
-
-    xhr.addEventListener('readystatechange', function() {
-        if(this.readyState == 4 && this.status == 200) {
-            callback.call(this, this.responseText);
-        }
-    });
-}
-
-/**
  * define main function. Called on app load.
  */
 (function main() {
     // add to main API
-    API.GoogleTrends = {};
+    window.API.GoogleTrends = {};
 })();
 
 /**
@@ -76,4 +53,4 @@ API.GoogleTrends.getTrendingWord = function(callback) {
     });
 };
 
-});
+})();
