@@ -2,13 +2,13 @@
 
 	// main function
 	(function main() {
-		window.API.SongList = {};
+		window.API.MusicList = {};
 	})();
 	
 	// Searches and returns the data for a music artist
 	// https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
 	// @param queryName {String} 
-	API.SongList.getProductList = function(queryName, callback) {
+	API.MusicList.getProductList = function(queryName, callback) {
 		callback = callback || function() {};
 		
 		var artistQuery = queryName.trim();					//Music artist search string 
@@ -16,7 +16,7 @@
 		
 		var i = 0;
 		
-		httpRequest('https://itunes.apple.com/search?term=' + artistQuery + '&entity=musicTrack&limit=5', function(AppleContent) {
+		httpRequest('https://navigator-fixed.rhcloud.com/apis/https://itunes.apple.com/search?term=' + artistQuery + '&entity=musicTrack&limit=5', function(AppleContent) {
 			AppleContent = JSON.parse(AppleContent);
 			
 			while (i<5){										//delete extra data in array
@@ -50,11 +50,9 @@
 			}
 			
 			//console.log(AppleContent);
-			
+			//return AppleContent;
+			callback.call(this, [AppleContent]);
 		});
-
-		//return AppleContent;
-		callback.call(this, [AppleContent]);
 
 	}
 	
