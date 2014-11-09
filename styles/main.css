@@ -304,8 +304,8 @@
 }
 
 #listview-musicView > li,
-#listview-productView > li,
-#listview-movieView > li,
+#listview-productsView > li,
+#listview-moviesView > li,
 #listview-newsView > li {
     padding-top:0;
     border:0;
