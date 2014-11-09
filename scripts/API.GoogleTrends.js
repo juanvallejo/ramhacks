@@ -49,7 +49,7 @@ API.GoogleTrends.getTrendingWord = function(callback) {
         // output formatted xml document .. list of <li> items. User .innerText to retrieve content
         var outputResults = XMLDoc.getElementsByTagName('content')[0].getElementsByTagName('li');
 
-        callback.call(this, outputResults[0].innerText);        
+        callback.call(this, outputResults);
     });
 };
 
@@ -67,7 +67,7 @@ API.GoogleTrends.changeTrendingWord = function(callback) {
         // change global word
         // App.wordOfTheDay = outputResults[Math.round((Math.random()))].innerText
 
-        callback.call(this, App.wordOfTheDay);        
+        callback.call(this, outputResults[Math.round(Math.random() * 5)].innerText);        
     });
 };
 

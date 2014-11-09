@@ -7,11 +7,17 @@
     </ul>
 </div>
 <script>
-API.GoogleTrends.getTrendingWord(function(word) {
+setTimeout(function() {
+    var ww = document.getElementById('word');
+    if(ww) {
+        ww.innerHTML = App.wordOfTheDay;
+    }
+// API.GoogleTrends.getTrendingWord(function(word) {
 
-	//call johnny's music api
-	API.MusicList.getProductList(word, function(products) {
+// 	//call johnny's music api
+	API.MusicList.getProductList(App.wordOfTheDay, function(products) {
 		addProductToCategory('listview-musicView', products, ['artistName','collectionName', 'trackName', 'trackViewUrl']);
 	});
-});
+}, 500);
+// });
 </script>

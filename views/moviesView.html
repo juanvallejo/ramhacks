@@ -8,13 +8,17 @@
 </div>
 
 <script>
-API.GoogleTrends.getTrendingWord(function(word) {
-
-	// call johnny's api
-	API.MovieList.getProductList(word, function(products) {
+setTimeout(function() {
+    var ww = document.getElementById('word');
+    if(ww) {
+        ww.innerHTML = App.wordOfTheDay;
+    }
+// // API.GoogleTrends.getTrendingWord(function(word) {
+// 	// call johnny's api
+	API.MovieList.getProductList(App.wordOfTheDay, function(products) {
 		//console.log(products);
 		addProductToCategory('listview-moviesView', products, ['Title', 'Plot','Year']);
 	});
-    
-});
+}, 500);
+// // });
 </script>
