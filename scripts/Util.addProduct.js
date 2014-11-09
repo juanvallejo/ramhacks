@@ -1,8 +1,6 @@
-function addProductToCategory(categoryId, productArray, properties) {
+function addProductToCategory(categoryId, productArray, properties, imagePath) {
 	// wrapper becomes ul tag in UI view
 	var wrapper = document.getElementById(categoryId);
-
-	console.log(productArray);
 
 	for(var i = 0;i < productArray.length;i++) {
 		// create new HTML elements
@@ -21,7 +19,7 @@ function addProductToCategory(categoryId, productArray, properties) {
 				var link = productArray[i][category[0]][category[1]];
 				if (link.match(/^(http|https)/gi)){
 
-					link = '<a href="'+link + '">' + productArray[i][category[0]][category[1]] + '</a>';
+					link = '<a href="' + link + '">Click For More Info</a>';
 					spans[spans.length-1].innerHTML = link;
 				}
 				else{
@@ -33,7 +31,7 @@ function addProductToCategory(categoryId, productArray, properties) {
 				var singleLink = productArray[i][properties[s]];
 				if(singleLink.match(/^(http|https)/gi)){
 
-					singleLink = '<a href="'+singleLink + '">' + productArray[i][properties[s]] + '</a>';
+					singleLink = '<a href="'+singleLink + '">Click For More Info</a>';
 					spans[spans.length-1].innerHTML = singleLink;
 				}
 				else{
@@ -44,9 +42,10 @@ function addProductToCategory(categoryId, productArray, properties) {
 		}
 
 		// set the content of these elements
-		mainDiv.innerHTML = "<img src='images/holiday.png'/>";
+		mainDiv.innerHTML = "<img src='" + (imagePath || 'images/bunnybear.png') + "'/>";
 
 		// set the class name of these divs
+		li.className 	= "custom-listview";
 		mainDiv.className = "j-listview-item announcement";
 		innerDiv.className = "j-listview-item-content";
 

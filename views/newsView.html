@@ -8,10 +8,8 @@
 </div>
 <script>
 API.GoogleTrends.getTrendingWord(function(word) {
-	console.log(word);
 	// call joey's api
 	API.GoogleNews.getProductList(word, function(products) {
-		console.log(products);
 		addProductToCategory('listview-newsView', products, ['link.innerText', 'description', 'link.href']);
 	});
 });

@@ -16,7 +16,6 @@
 
 		httpRequest('https://navigator-fixed.rhcloud.com/apis/https://itunes.apple.com/search?term=' + artistQuery + '&entity=musicTrack&limit=5', function(AppleContent) {
 			AppleContent = JSON.parse(AppleContent);
-			console.log(AppleContent);
 			var products = [];
 			for (var i = 0; i <AppleContent.results.length; i++){
 				products.push(AppleContent.results[i]);

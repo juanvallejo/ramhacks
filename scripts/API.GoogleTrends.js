@@ -65,7 +65,6 @@ API.GoogleTrends.changeTrendingWord = function(callback) {
         var outputResults = XMLDoc.getElementsByTagName('content')[0].getElementsByTagName('li');
 
         // change global word
-        console.log(Math.round((Math.random()) * 5));
         // App.wordOfTheDay = outputResults[Math.round((Math.random()))].innerText
 
         callback.call(this, App.wordOfTheDay);        
