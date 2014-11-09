@@ -80,11 +80,10 @@
 		<script>
 			API.GoogleTrends.getTrendingWord(function(word) {
 				// call joey's api
-				API.GoogleNews.getProductList(word, function(products) {
-					console.log(products);
-
-					addProductToCategory('', products);
-				});
+				// API.GoogleNews.getProductList(word, function(products) {
+				// 	console.log(products);
+				// 	addProductToCategory('listview-newsView', products);
+				// });
 
 				// call jake's api
 				// API.AmazonProducts.getProductList(word, function(products) {
@@ -92,14 +91,16 @@
 				// });
 
 				// call johnny's api
-				API.MovieList.getProductList(word, function(products) {
-					console.log(products);
-				});
+				// API.MovieList.getProductList(word, function(products) {
+				// 	console.log(products);
+				// 	addProductToCategory('listview-moviesView', products.results);
+				// });
 
 				// call johnny's music api
-				API.MusicList.getProductList(word, function(products) {
-					console.log(products);
-				});
+				// API.MusicList.getProductList(word, function(products) {
+				// 	console.log(products);
+				// 	addProductToCategory('listview-musicView', products);
+				// });
 			});
 		</script>
 	</body>
