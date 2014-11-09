@@ -11,5 +11,11 @@
 * 
 */
 
-// define global API object
-window.API = {};
+// define global API object. Check if node.js being used or not
+if(typeof require != 'undefined') {
+	var API = {};
+
+	module.exports = API;
+} else {
+	window.API = {};
+}
