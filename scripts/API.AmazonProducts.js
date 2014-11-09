@@ -22,7 +22,7 @@ var TitleList= ["1","2","3","4","5"];
 var products = []
 //Makes the call to populate the the JSON List Items
 API.AmazonProducts.getProductList = function(PWord,callback) {
-	var options = {SearchIndex: "VideoGames", Keywords: PWord};
+	var options = {SearchIndex: "All", Keywords: PWord};
 	prodAdv.call("ItemSearch", options, function(err, result) {
 	JasonListItems = result.Items;
 	for (var i = 0; i< 5; i++){
