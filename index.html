@@ -39,7 +39,7 @@
 		<div data-role="layout" data-id="jitterz-default">
 			<header data-role="header" data-id="jitterz-default-header">
 				<div data-role="navbar">
-					<span>Trende</span>
+					<span id="word">Trende</span>
 				</div>
 			</header>
 			<div data-role="footer">
@@ -78,10 +78,11 @@
 
 		<script>
 			API.GoogleTrends.getTrendingWord(function(word) {
+				var wordWrap = document.getElementById('word').innerHTML = word;
 
 				//call jake's api
 				word = word.replace(' ', '+');
-				httpRequest('http://localhost:8080/getProductList/' + word, function(products) {
+				httpRequest('http://172.23.24.58:8080/getProductList/' + word, function(products) {
 					addProductToCategory('listview-productsView', JSON.parse(products), ['title', 'group','link'])
 				});
 
