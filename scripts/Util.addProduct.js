@@ -9,21 +9,34 @@ function addProductToCategory(categoryId, productArray, properties) {
 		var li = document.createElement('li');
 		var mainDiv = document.createElement('div');
 		var innerDiv = document.createElement('div');
-		var spanTitle = document.createElement('span');
-		var spanDescription = document.createElement('span');
+
+		// add spans for however many properties we have
+		var spans = [];
+
+		for(var s = 0; s < properties.length; s++) {
+			var category = properties[s].split(".");
+			spans.push(document.createElement('span'));
+			
+			if(category.length > 1) {
+				spans[spans.length-1].innerHTML = '<a href="' + productArray[i][category[0]][category[1]] + '">' + productArray[i][category[0]][category[1]] + '</a>';
+			} else {
+				spans[spans.length-1].innerHTML=productArray[i][properties[s]];
+			}
+		}
 
 		// set the content of these elements
 		mainDiv.innerHTML = "<img src='images/holiday.png'/>";
-		spanTitle.innerHTML = productArray[i][properties[0]];
-		spanDescription.innerHTML = productArray[i][properties[1]];
 
 		// set the class name of these divs
 		mainDiv.className = "j-listview-item announcement";
 		innerDiv.className = "j-listview-item-content";
 
+		// append spans yo
+		spans.forEach(function(arrayItem, index) {
+			innerDiv.appendChild(arrayItem);
+		});
+
 		// append divs to one another
-		innerDiv.appendChild(spanTitle);
-		innerDiv.appendChild(spanDescription);
 		mainDiv.appendChild(innerDiv);
 		li.appendChild(mainDiv);
 
