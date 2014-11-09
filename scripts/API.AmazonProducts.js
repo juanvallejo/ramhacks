@@ -46,7 +46,7 @@ API.AmazonProducts.getProductList = function(PWord, callback) {
 	var TitleList= ["1","2","3","4","5"];
 	var products = [];
 
-	var options = {SearchIndex: "VideoGames", Keywords: PWord};
+	var options = {SearchIndex: "All", Keywords: PWord};
 	prodAdv.call("ItemSearch", options, function(err, result) {
 		JasonListItems = result.Items;
 
@@ -76,6 +76,8 @@ var server = http.createServer(function(req, res) {
 
 	if(params[1] && API.AmazonProducts[params[1]] && params[2]) {
 		API.AmazonProducts[params[1]].call(this, (params[2] || ''), function(products) {
+			res.writeHead('Access-Control-Allow-Origin', '*');
+			res.header('Access-Control-Allow-Origin', '*')
 			res.end(JSON.stringify(products));
 		});
 	} else {

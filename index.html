@@ -85,9 +85,10 @@
 				// });
 
 				//call jake's api
-				API.AmazonProducts.getProductList(word, function(products) {
+				word = word.replace(' ', '+');
+				httpRequest('http://localhost:8080/getProductList/'+ word, function(products) {
 					console.log(products);
-					addProductToCategory('listview-newsView', products, [])
+					//addProductToCategory('listview-newsView', products, [])
 				});
 
 				// call johnny's api
