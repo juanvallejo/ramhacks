@@ -7,13 +7,10 @@
 * @author juanvallejo
 * @date 10/15/14
 *
-* Node.js server
 * Holds all external api library variables. These are loaded through external links
 * 
 */
 
-// define required server vars
-
 // load amazon products api
-var aws = require('aws-lib');
+window.aws = new AWS.S3();
 
