@@ -89,6 +89,10 @@
 					// assign word to global var
 					App.wordOfTheDay = words[Math.round(Math.random() * 5)].innerText;
 
+					if(App.wordOfTheDay == 'Big Hero 6 Movie') {
+						App.wordOfTheDay = 'Big Hero';
+					}
+
 					setTimeout(function() {
 						// assign word of the day as title of app
 						var wordWrap = document.getElementById('word');
