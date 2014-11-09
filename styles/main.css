@@ -304,12 +304,19 @@
     background-color: #b2e4e3;
 }
 
-#listview-musicView > li{
+#listview-musicView > li,
+#listview-productView > li,
+#listview-movieView > li,
+#listview-newsView > li {
     padding-bottom:0;
     border:0;
 }
 
-#musicView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div {
+#musicView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div,
+#movieView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div,
+#newsView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div,
+div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div {
     padding-bottom: 0px;
 }
+
 
