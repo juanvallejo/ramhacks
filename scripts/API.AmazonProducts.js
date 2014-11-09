@@ -29,6 +29,7 @@ API.AmazonProducts.getProductList = function(PWord,callback) {
 		ProductGroupList[i] = JasonListItems.Item[i].ItemAttributes.ProductGroup
 		TitleList[i] = JasonListItems.Item[i].ItemAttributes.Title
 		products.push({
+			link: JasonListItems.Item[i].DetailPageURL,
 			manufactor: ManufactorList[i],
 			title: TitleList[i],
 			group: ProductGroupList[i]
