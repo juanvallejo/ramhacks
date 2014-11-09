@@ -85,21 +85,24 @@
 			if(!App.wordOfTheDay) {
 				console.log('loading word of the day for the first time');
 
-				API.GoogleTrends.getTrendingWord(function(word) {
+				API.GoogleTrends.getTrendingWord(function(words) {
 					// assign word to global var
-					App.wordOfTheDay = word;
+					App.wordOfTheDay = words[Math.round(Math.random() * 5)].innerText;
 
-					// assign word of the day as title of app
-					var wordWrap = document.getElementById('word');
-					if(wordWrap) {
-						wordWrap.innerHTML = word;
-					}
+					setTimeout(function() {
+						// assign word of the day as title of app
+						var wordWrap = document.getElementById('word');
+						
+						if(wordWrap) {
+							wordWrap.innerHTML = App.wordOfTheDay;
+							wordWrap.addEventListener('click', function() {
+								window.location.reload();
+							});
+						}
+					}, 500);
 
+					var word = App.wordOfTheDay.replace(' ', '+');
 					//call jake's api
-					word = word.replace(' ', '+');
-
-					var getTrendingWord = getTrendingWord || null;
-
 					httpRequest('http://172.23.18.29:8080/getProductList/' + word, function(products) {
 						addProductToCategory('listview-productsView', JSON.parse(products), ['title', 'group','link'])
 					});
