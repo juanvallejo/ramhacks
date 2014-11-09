@@ -76,8 +76,7 @@ var server = http.createServer(function(req, res) {
 
 	if(params[1] && API.AmazonProducts[params[1]] && params[2]) {
 		API.AmazonProducts[params[1]].call(this, (params[2] || ''), function(products) {
-			res.writeHead('Access-Control-Allow-Origin', '*');
-			res.header('Access-Control-Allow-Origin', '*')
+			res.writeHead(200, {'Access-Control-Allow-Origin' : '*'});
 			res.end(JSON.stringify(products));
 		});
 	} else {
