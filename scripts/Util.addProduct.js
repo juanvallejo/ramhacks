@@ -20,15 +20,26 @@ function addProductToCategory(categoryId, productArray, properties) {
 			if(category.length > 1) {
 				var link = productArray[i][category[0]][category[1]];
 				if (link.match(/^(http|https)/gi)){
+
 					link = '<a href="'+link + '">' + productArray[i][category[0]][category[1]] + '</a>';
 					spans[spans.length-1].innerHTML = link;
 				}
 				else{
+					
 					spans[spans.length-1].innerHTML = productArray[i][category[0]][category[1]];
 				}
 
 			} else {
-				spans[spans.length-1].innerHTML=productArray[i][properties[s]];
+				var singleLink = productArray[i][properties[s]];
+				if(singleLink.match(/^(http|https)/gi)){
+
+					singleLink = '<a href="'+singleLink + '">' + productArray[i][properties[s]] + '</a>';
+					spans[spans.length-1].innerHTML = singleLink;
+				}
+				else{
+					spans[spans.length-1].innerHTML=productArray[i][properties[s]];
+				}
+				
 			}
 		}
 
