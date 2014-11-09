@@ -8,7 +8,7 @@
 
 /* ios7 specific styles */
 .km-ios7 .km-view .km-content {
-    background-color: #6095b7; /*changed bg color*/
+    background-color: #6095b7;
 }
 .km-ios7 .k-list,
 .km-ios7 .k-slider,
@@ -19,7 +19,7 @@
     border-image: -webkit-linear-gradient(left,transparent 1em,rgba(255,255,255,0.5) 1em,rgba(255,255,255,0.5) 100%) 1 stretch;
 }
 .km-ios7 .km-list>li:last-child {
-	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,0.5);
+    -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,0.5);
 }
 .km-ios7 .km-listview-link:after {
     color: rgba(255,255,255,0.5);
@@ -36,7 +36,7 @@
     background-color: #422e17;
 }
 .km-ios .km-view .km-navbar {
-    background-color: #604118;
+    background-color: #b2e4e3;
 }
 .km-ios .km-view .km-tabstrip .km-button {
     background-color: #604118;
@@ -70,10 +70,10 @@
 }
 
 .km-android .km-view .km-content {
-    background-color: #b2e4e3;
+    background-color: #422e17;
 }
 .km-android .km-view .km-navbar {
-    background-color: #604118;
+    background-color: #b2e4e3;
 }
 .km-android .km-view .km-tabstrip .km-button.km-state-active {
     background-color: #133403;
@@ -84,10 +84,10 @@
 }
 .km-android .km-view .km-navbar .km-buttongroup .km-button {
     background-color: transparent;
-    border: 1px solid #133403;
+    border: 1px solid red;
 }
 .km-android .km-view .km-navbar .km-button.km-state-active {
-	background-color: #133403;
+    background-color: #b2e4e3;
 }
 .km-android .km-view .km-navbar .km-button.km-state-active:after {
     display: none;
@@ -99,7 +99,7 @@
 /* windows phone specific styles */
 .km-wp .km-view .km-content,
 .km-wp .km-view .km-navbar {
-    background-color: #af9577;
+    background-color: #6095b7/*#af9577*/;
 }
 .km-wp .km-actionsheet li a {
     text-transform: lowercase;
@@ -168,7 +168,7 @@
 }
 
 .card-line {
-	height: 40px;
+    height: 40px;
     width: 100%;
     background: rgba(0,0,0,0.3);
     text-align: center;
@@ -179,14 +179,14 @@
 .card-line > span {
     font-size: 23px;
     opacity: 0.7;
-    text-shadow: -0px -1px 3px black;
+    text-shadow: -0px -1px 3px red;
     color: white;
     font-weight: normal;
     font-family: monospace;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     top: 8px;
-	position: relative;
+    position: relative;
 }
 
 .card-icon {
@@ -211,7 +211,7 @@
 }
 .card-bonus > span {
     margin-left: 16px;
-    text-shadow: 0px -1px 3px black;
+    text-shadow: 0px -1px 3px red;
     color: #fff;
     font-size: 24px;
 }
@@ -248,7 +248,7 @@
     padding-left: 60px;
 }
 .j-listview-item > .j-listview-item-content:after {
-	clear: both;
+    clear: both;
 }
 .j-listview-item > .j-listview-item-content > span {
     display:block;
@@ -279,12 +279,36 @@
     padding-left: 0;
 }
 .j-listview-item.rewards > .j-listview-item-content > span {
-	    
+
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
-	.j-icon {
+    .j-icon {
         background: url("../images/cofeeCup-sprite@x2.png") no-repeat 0 0;
         background-size: 100%;
-	}
+    }
+}
+
+
+/* custom css rules */
+
+.j-listview-item {
+    background-color: #fff;
+    border-radius: 5px;
+    border-bottom: 4px solid gray;
+
+}
+.km-view-title,
+.km-widget .km-tabstrip{
+    /* border-radius: 25px; */
+    background-color: #b2e4e3;
+}
+
+#listview-musicView > li{
+    padding-bottom:0;
+    border:0;
+}
+
+#musicView > div.km-content.km-widget.km-scroll-wrapper > div.km-scroll-container > div {
+    padding-bottom: 0px;
 }
